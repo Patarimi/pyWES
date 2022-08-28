@@ -9,7 +9,7 @@ db: List[Simulator] = [
     Simulator(
         name="ngspice",
         path="./simulators/ngspice-37_64/Spice64/bin/ngspice.exe",
-        supported_sim_type=("dc", "ac", "tran")
+        supported_sim_type=("dc", "ac", "tran"),
     ),
 ]
 

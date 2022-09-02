@@ -1,3 +1,4 @@
+from os import getcwd
 from fastapi import FastAPI, HTTPException
 from uuid import uuid4, UUID
 from typing import List
@@ -8,7 +9,7 @@ app = FastAPI()
 db: List[Simulator] = [
     Simulator(
         name="ngspice",
-        path="./simulators/ngspice-37_64/Spice64/bin/ngspice.exe",
+        path=f"{getcwd()}/simulators/Spice64/bin/ngspice.exe",
         supported_sim_type=("dc", "ac", "tran"),
     ),
 ]

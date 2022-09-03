@@ -3,6 +3,6 @@ from wrapper.ngspice import NGSpice
 
 
 def test_ngspice():
-    sim = NGSpice(path=f"{getcwd()}/simulators/Spice64/bin/ngspice.exe")
+    sim = NGSpice(sim_path=f"{getcwd()}/simulators/Spice64/bin/ngspice.exe")
 
     sim.run(f"{getcwd()}/test/schem_test.net", f"{getcwd()}/test/")

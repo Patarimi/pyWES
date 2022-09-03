@@ -1,17 +1,13 @@
 from os import getcwd
-from fastapi import FastAPI, HTTPException
-from uuid import uuid4, UUID
+from fastapi import FastAPI
 from typing import List
-from models import Simulator, SimulationType, Simulation
+from wrapper.ngspice import NGSpice
+from wrapper.spice_wrapper import SpiceWrapper
 
 
 app = FastAPI()
-db: List[Simulator] = [
-    Simulator(
-        name="ngspice",
-        path=f"{getcwd()}/simulators/Spice64/bin/ngspice.exe",
-        supported_sim_type=("dc", "ac", "tran"),
-    ),
+db: List[SpiceWrapper] = [
+    NGSpice(sim_path=f"{getcwd()}/simulators/Spice64/bin/ngspice.exe"),
 ]
 
 
@@ -26,6 +22,11 @@ async def fetch_simulators():
 
 
 @app.post("/api/v1/simulators")
-async def add_simulator(simulator: Simulator):
+async def add_simulator(simulator: SpiceWrapper):
     db.append(simulator)
     return {"name": simulator.name}
+
+
+@app.post("api/v1/simulations")
+async def add_simulation():
+    return {"aaa": "bbb"}

@@ -8,6 +8,7 @@ authors = ["Patarimi <mpqqch@gmail.com>"]
 python = "^3.9"
 fastapi-jsonrpc = "^2.2.0"
 uvicorn = {extras = ["standard"], version = "^0.17.6"}
+typer = "^0.6.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^7.1.2"

@@ -1,32 +1,27 @@
-from os import getcwd
-from fastapi import FastAPI
-from typing import List
-from wrapper.ngspice import NGSpice
-from wrapper.spice_wrapper import SpiceWrapper
+import typer
+import uvicorn
+
+cli = typer.Typer()
 
 
-app = FastAPI()
-db: List[SpiceWrapper] = [
-    NGSpice(sim_path=f"{getcwd()}/simulators/Spice64/bin/ngspice.exe"),
-]
+@cli.command()
+def server(command: str):
+    uvicorn_handler(command, "server")
 
 
-@app.get("/")
-async def root():
-    return {"Hello": "World"}
+@cli.command()
+def client(command: str):
+    uvicorn_handler(command, "client")
 
 
-@app.get("/api/v1/simulators")
-async def fetch_simulators():
-    return db
+def uvicorn_handler(command, side: str):
+    if command == "start":
+        print(f"starting {side} side")
+        if side == "server":
+            uvicorn.run("server:Server", host="127.0.0.1", port=5000, log_level="info")
+        else:
+            uvicorn.run("client:Client", host="127.0.0.1", port=5050, log_level="info")
 
 
-@app.post("/api/v1/simulators")
-async def add_simulator(simulator: SpiceWrapper):
-    db.append(simulator)
-    return {"name": simulator.name}
-
-
-@app.post("api/v1/simulations")
-async def add_simulation():
-    return {"aaa": "bbb"}
+if __name__ == "__main__":
+    cli()

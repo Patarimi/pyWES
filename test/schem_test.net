@@ -21,9 +21,6 @@ Mp1 out in cc cc pm W=4u L=0.18u
 * control language script
 .control                                    ; begin of control section
 run                                         ; run the .tran command
-set xbrushwidth=2                           ; set linewidth of graph
-plot v(in) v(out)                           ; plot the simulation results
-write $inputdir/simout.out v(in) v(out)     ; write the results to a file
 .endc                                       ; end of control section
 
 .end

@@ -2,9 +2,11 @@
 Base class for spice simulator
 """
 from abc import ABC, abstractmethod
+import h5py
 from pydantic import BaseModel, FilePath, DirectoryPath
 from enum import Enum
-from typing import List
+from typing import List, TypedDict
+from numpy import ndarray
 
 
 class SupportedSimulator(str, Enum):
@@ -15,6 +17,17 @@ class SimulationType(str, Enum):
     ac = "ac"
     dc = "dc"
     tran = "tran"
+
+
+class ResultDict(TypedDict):
+    label: str
+    array: ndarray
+
+
+def write_result(result: ResultDict, result_file: FilePath):
+    with h5py.File(result_file, "w") as f:
+        for keys in result:
+            f[keys] = result[keys]
 
 
 class SpiceWrapper(BaseModel, ABC):
@@ -37,8 +50,9 @@ class SpiceWrapper(BaseModel, ABC):
         :return:
         """
 
-    def write_result(self):
+    @abstractmethod
+    def serialize_result(self, result_file: FilePath):
         """
-
+            Convert simulation output to ResultDict
         :return:
         """

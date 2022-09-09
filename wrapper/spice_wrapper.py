@@ -37,17 +37,17 @@ class SpiceWrapper(BaseModel, ABC):
 
     def add_to_queue(self):
         """
-
+        Not Implemented Yet.
         :return:
         """
 
     @abstractmethod
-    def run(self, _spice_file: FilePath, result_folder: DirectoryPath):
+    def run(self, _spice_file: FilePath, log_folder: DirectoryPath):
         """
-
-        :param _spice_file:
-        :param result_folder:
-        :return:
+        run the spice simulation describe by the _spice_file
+        :param _spice_file: spice file to be simulated
+        :param log_folder: directory to write simulation log
+        :return: a temp file of the raw out of the simulator (to be process by serialize_result)
         """
 
     @abstractmethod

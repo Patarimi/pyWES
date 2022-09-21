@@ -19,6 +19,19 @@ black = "^22.6.0"
 [tool.poetry.group.OpenEMS.dependencies]
 py-ems = {  git = "https://github.com/matthuszagh/pyems.git" }
 
+
+[tool.poetry.group.fdtd.dependencies]
+fdtd = "^0.2.5"
+functoolz = "^0.4"
+
+
+[tool.poetry.group.functools.dependencies]
+fdtd = "^0.2.5"
+
+
+[tool.poetry.group.functoolz.dependencies]
+fdtd = "^0.2.5"
+
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"

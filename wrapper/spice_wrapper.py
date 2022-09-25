@@ -2,32 +2,24 @@
 Base class for spice simulator
 """
 from abc import ABC, abstractmethod
-import h5py
 from pydantic import BaseModel, FilePath, DirectoryPath
 from enum import Enum
-from typing import List, TypedDict
-from numpy import ndarray
+from typing import List
 
 
 class SupportedSimulator(str, Enum):
     ngsice = "ngspice"
 
 
+class SimulatorType(str, Enum):
+    spice = "spice"
+    em = "em"
+
+
 class SimulationType(str, Enum):
     ac = "ac"
     dc = "dc"
     tran = "tran"
-
-
-class ResultDict(TypedDict):
-    label: str
-    array: ndarray
-
-
-def write_result(result: ResultDict, result_file: FilePath):
-    with h5py.File(result_file, "w") as f:
-        for keys in result:
-            f[keys] = result[keys]
 
 
 class SpiceWrapper(BaseModel, ABC):

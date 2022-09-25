@@ -1,12 +1,11 @@
 import h5py
 from pydantic import FilePath
 from typing import TypedDict, List
-from numpy import ndarray
 
 
 class ResultDict(TypedDict):
     label: str
-    array: ndarray
+    array: List[float]
 
 
 class H5pyStruct(TypedDict):

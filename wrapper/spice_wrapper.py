@@ -4,7 +4,9 @@ Base class for spice simulator
 from abc import ABC, abstractmethod
 from pydantic import BaseModel, FilePath, DirectoryPath
 from enum import Enum
-from typing import List
+from typing import List, Optional
+from asyncio import StreamReader
+from parse.results import ResultDict
 
 
 class SupportedSimulator(str, Enum):
@@ -26,6 +28,7 @@ class SpiceWrapper(BaseModel, ABC):
     name: SupportedSimulator
     path: FilePath
     supported_sim: List[SimulationType]
+    results: Optional[ResultDict]
 
     def add_to_queue(self):
         """
@@ -34,7 +37,7 @@ class SpiceWrapper(BaseModel, ABC):
         """
 
     @abstractmethod
-    def run(self, _spice_file: FilePath, log_folder: DirectoryPath):
+    async def run(self, _spice_file: FilePath, log_folder: DirectoryPath):
         """
         run the spice simulation describe by the _spice_file
         :param _spice_file: spice file to be simulated
@@ -43,8 +46,15 @@ class SpiceWrapper(BaseModel, ABC):
         """
 
     @abstractmethod
-    def serialize_result(self, result_file: FilePath):
+    async def parse_out(self, stream: StreamReader):
         """
             Convert simulation output to ResultDict
+        :return:
+        """
+
+    @abstractmethod
+    async def parse_err(self, stream: StreamReader):
+        """
+            Capture error and print it
         :return:
         """

@@ -7,6 +7,7 @@ from enum import Enum
 from typing import List, Optional
 from asyncio import StreamReader
 from parse.results import ResultDict
+import h5py
 
 
 class SupportedSimulator(str, Enum):
@@ -58,3 +59,8 @@ class SpiceWrapper(BaseModel, ABC):
             Capture error and print it
         :return:
         """
+
+    def export(self, file: FilePath):
+        with h5py.File(file, "w") as f:
+            for res in self.results:
+                f[f"res/{res}"] = self.results[res]

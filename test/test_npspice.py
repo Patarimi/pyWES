@@ -8,3 +8,5 @@ def test_ngspice():
     run(sim.run(f"{getcwd()}/test/schem_test.net", f"{getcwd()}/test/"))
 
     assert len(sim.results.keys()) == 6
+
+    sim.export("./test/schem_test.hdf5")

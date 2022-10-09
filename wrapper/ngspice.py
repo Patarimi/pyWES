@@ -18,7 +18,7 @@ class NGSpice(SpiceWrapper):
                                                      stderr=asyncio.subprocess.PIPE)
         std_out_task = asyncio.create_task(self.parse_out(proc.stdout))
         std_err_task = asyncio.create_task(self.parse_err(proc.stderr, log_folder))
-        return_code, _ = await asyncio.gather(proc.wait(), std_out_task)
+        await asyncio.gather(proc.wait(), std_out_task, std_err_task)
         cir.close()
 
     async def parse_out(self, stdout: StreamReader):

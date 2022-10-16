@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "webApp"
+name = "pywes"
 version = "0.1.0"
 description = ""
 authors = ["Patarimi <mpqqch@gmail.com>"]

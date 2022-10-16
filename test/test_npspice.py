@@ -1,4 +1,4 @@
-from wrapper.ngspice import NGSpice
+from pywes.wrapper.ngspice import NGSpice
 from os import getcwd
 from asyncio import run
 

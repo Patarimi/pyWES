@@ -6,7 +6,7 @@ from pydantic import BaseModel, FilePath, DirectoryPath
 from enum import Enum
 from typing import List, Optional
 from asyncio import StreamReader
-from parse.results import ResultDict
+from pywes.parse.results import ResultDict
 import h5py
 
 

@@ -1,8 +1,8 @@
 from os import getcwd
 from fastapi import FastAPI
 from typing import List
-from wrapper.ngspice import NGSpice
-from wrapper.spice_wrapper import SpiceWrapper
+from pywes.wrapper import NGSpice
+from pywes.wrapper import SpiceWrapper
 
 
 Server = FastAPI()

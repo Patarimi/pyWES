@@ -17,7 +17,7 @@ h5py = "^3.7.0"
 numpy = "^1.23.2"
 
 [tool.poetry.dev-dependencies]
-pytest = "^7.1.2"
+pytest = "^7.2.0"
 black = "^22.6.0"
 
 [tool.poetry.group.spice.dependencies]

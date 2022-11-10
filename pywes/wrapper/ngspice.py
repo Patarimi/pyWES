@@ -11,11 +11,13 @@ class NGSpice(SpiceWrapper):
         )
 
     async def run(self, _spice_file: FilePath, log_folder: DirectoryPath):
-        cir = open(_spice_file, "r")
-        proc = await asyncio.create_subprocess_shell(f"{self.path} -s",
-                                                     stdin=cir,
-                                                     stdout=asyncio.subprocess.PIPE,
-                                                     stderr=asyncio.subprocess.PIPE)
+        cir = open(_spice_file)
+        proc = await asyncio.create_subprocess_shell(
+            f"{self.path} -s",
+            stdin=cir,
+            stdout=asyncio.subprocess.PIPE,
+            stderr=asyncio.subprocess.PIPE,
+        )
         std_out_task = asyncio.create_task(self.parse_out(proc.stdout))
         std_err_task = asyncio.create_task(self.parse_err(proc.stderr, log_folder))
         await asyncio.gather(proc.wait(), std_out_task, std_err_task)

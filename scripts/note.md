@@ -1,3 +1,2 @@
 **update cli**\
-typer pywes.main utils docs --name pywes --out
-put ./readme.md
+typer pywes.main utils docs --name pywes --output ./readme.md

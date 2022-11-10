@@ -9,23 +9,27 @@ readme = "README.md"
 pywes = "pywes.main:cli"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 fastapi-jsonrpc = "^2.2.0"
 uvicorn = {extras = ["standard"], version = "^0.19.0"}
 typer = {extras = ["all"], version = "^0.6.1"}
 h5py = "^3.7.0"
 numpy = "^1.23.2"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
 black = "^22.6.0"
+pre-commit = "^2.20.0"
+tox = "^3.27.0"
 
 [tool.poetry.group.spice.dependencies]
 PySpice = "^1.5"
 
-
 [tool.poetry.group.em-fdtd.dependencies]
 ngsolve = "^6.2.2204"
+
+[tool.poetry.group.em-sim.dependencies]
+pyems = "^0.1.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

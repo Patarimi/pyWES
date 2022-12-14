@@ -15,12 +15,13 @@ uvicorn = {extras = ["standard"], version = "^0.19.0"}
 typer = {extras = ["all"], version = "^0.7.0"}
 h5py = "^3.7.0"
 numpy = "^1.23.2"
+pyelmer = "^1.0.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.0"
 black = "^22.6.0"
 pre-commit = "^2.20.0"
-tox = "^3.27.0"
+tox = "^4.0.0"
 
 [tool.poetry.group.spice.dependencies]
 PySpice = "^1.5"

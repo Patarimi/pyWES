@@ -25,7 +25,7 @@ class SimulationType(str, Enum):
     tran = "tran"
 
 
-class SpiceWrapper(BaseModel, ABC):
+class BaseWrapper(BaseModel, ABC):
     name: SupportedSimulator
     path: FilePath
     supported_sim: List[SimulationType]
@@ -38,11 +38,17 @@ class SpiceWrapper(BaseModel, ABC):
         """
 
     @abstractmethod
-    async def run(self, _spice_file: FilePath, log_folder: DirectoryPath):
+    async def run(
+        self,
+        sim_file: FilePath,
+        log_folder: DirectoryPath,
+        config_file: List[FilePath] = (),
+    ):
         """
         run the spice simulation describe by the _spice_file
-        :param _spice_file: spice file to be simulated
+        :param sim_file: input file to be simulated
         :param log_folder: directory to write simulation log
+        :param config_file: List of file used to set up the simulator
         :return: a temp file of the raw out of the simulator (to be process by serialize_result)
         """
 
@@ -54,7 +60,7 @@ class SpiceWrapper(BaseModel, ABC):
         """
 
     @abstractmethod
-    async def parse_err(self, stream: StreamReader):
+    async def parse_err(self, stream: StreamReader, log_folder: DirectoryPath):
         """
             Capture error and print it
         :return:

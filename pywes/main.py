@@ -3,7 +3,7 @@ import uvicorn
 from enum import Enum
 import wget
 import zipfile
-from os import getcwd
+from os import getcwd, remove
 
 cli = typer.Typer()
 
@@ -41,6 +41,7 @@ def install_ngspice():
     wget.download(ngspice_base_url + ngspice_archive_name, base_install)
     with zipfile.ZipFile(base_install + ngspice_archive_name) as zip:
         zip.extractall(base_install)
+    remove(base_install + ngspice_archive_name)
 
 
 def uvicorn_handler(command: CmdList, side: str):

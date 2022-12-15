@@ -1,17 +1,21 @@
 import asyncio
 from asyncio import StreamReader
 from pydantic import FilePath, DirectoryPath
-from .spice_wrapper import SpiceWrapper, ResultDict
+from .base_wrapper import BaseWrapper, ResultDict
+from typing import List
 
 
-class NGSpice(SpiceWrapper):
+class NGSpice(BaseWrapper):
     def __init__(self, sim_path: FilePath):
-        SpiceWrapper.__init__(
-            self, name="ngspice", path=sim_path, supported_sim=("ac",)
-        )
+        BaseWrapper.__init__(self, name="ngspice", path=sim_path, supported_sim=("ac",))
 
-    async def run(self, _spice_file: FilePath, log_folder: DirectoryPath):
-        cir = open(_spice_file)
+    async def run(
+        self,
+        sim_file: FilePath,
+        log_folder: DirectoryPath,
+        config_file: List[FilePath] = (),
+    ):
+        cir = open(sim_file)
         proc = await asyncio.create_subprocess_shell(
             f"{self.path} -s",
             stdin=cir,
@@ -56,5 +60,5 @@ class NGSpice(SpiceWrapper):
                     self.results[var_name[ind]].append(r)
 
     async def parse_err(self, stderr: StreamReader, log_folder: DirectoryPath):
-        with open(log_folder + "err.out", "ab") as err:
+        with open(log_folder + "err.out", "wb") as err:
             err.write(await stderr.read())

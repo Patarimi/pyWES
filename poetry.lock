@@ -840,8 +840,8 @@ full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyam
 
 [[package]]
 name = "tbb"
-version = "2021.7.1"
-description = "Intel® oneAPI Threading Building Blocks"
+version = "2021.8.0"
+description = "Intel® oneAPI Threading Building Blocks (oneTBB)"
 category = "dev"
 optional = false
 python-versions = "*"
@@ -1601,8 +1601,6 @@ pathspec = [
     {file = "pathspec-0.10.3.tar.gz", hash = "sha256:56200de4077d9d0791465aa9095a01d421861e405b5096955051deefd697d6f6"},
 ]
 pillow = [
-    {file = "Pillow-9.3.0-1-cp37-cp37m-win32.whl", hash = "sha256:e6ea6b856a74d560d9326c0f5895ef8050126acfdc7ca08ad703eb0081e82b74"},
-    {file = "Pillow-9.3.0-1-cp37-cp37m-win_amd64.whl", hash = "sha256:32a44128c4bdca7f31de5be641187367fe2a450ad83b833ef78910397db491aa"},
     {file = "Pillow-9.3.0-cp310-cp310-macosx_10_10_x86_64.whl", hash = "sha256:0b7257127d646ff8676ec8a15520013a698d1fdc48bc2a79ba4e53df792526f2"},
     {file = "Pillow-9.3.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:b90f7616ea170e92820775ed47e136208e04c967271c9ef615b6fbd08d9af0e3"},
     {file = "Pillow-9.3.0-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl", hash = "sha256:68943d632f1f9e3dce98908e873b3a090f6cba1cbb1b892a9e8d97c938871fbe"},
@@ -1859,11 +1857,9 @@ starlette = [
     {file = "starlette-0.22.0.tar.gz", hash = "sha256:b092cbc365bea34dd6840b42861bdabb2f507f8671e642e8272d2442e08ea4ff"},
 ]
 tbb = [
-    {file = "tbb-2021.7.1-py2.py3-none-macosx_10_15_x86_64.macosx_11_0_x86_64.whl", hash = "sha256:38db98913b5d8279321d6a5f53bd2d518344b1ba31bbca534aa2aa3dd5d9257e"},
-    {file = "tbb-2021.7.1-py2.py3-none-manylinux1_i686.whl", hash = "sha256:a5f6f5e22d7546e9b5013062c1922374a691a8c462d963de0070a9a6983cfbe7"},
-    {file = "tbb-2021.7.1-py2.py3-none-manylinux1_x86_64.whl", hash = "sha256:7bc07cd9198ab4041bf3f898ba8fc899395d267f1e2d82a44cd3f7b8ff6e79d5"},
-    {file = "tbb-2021.7.1-py3-none-win32.whl", hash = "sha256:19d0c6ef9fe0d788bf1b38ef6cae4ecc9a716f2537c2a1e86855383dcf451cd1"},
-    {file = "tbb-2021.7.1-py3-none-win_amd64.whl", hash = "sha256:ff30051e957461c1bdfb168e3ee6312d21fc9c7843eed397f3e5ea24f9d67426"},
+    {file = "tbb-2021.8.0-py2.py3-none-macosx_10_15_x86_64.macosx_11_0_x86_64.whl", hash = "sha256:4b65e890524aa5e8ab92e68b83ec5e7160f57e6cd63622fe0af2e626d4010de4"},
+    {file = "tbb-2021.8.0-py2.py3-none-manylinux1_i686.whl", hash = "sha256:6ffb8e6c43e03a3a70ec44e28b15e01833a6d336e900253ebf708905c7dc60aa"},
+    {file = "tbb-2021.8.0-py2.py3-none-manylinux1_x86_64.whl", hash = "sha256:7d3fad573a032915838cff9fc224cb4aa9cdc6746b2d2c1b6039420379a8a2ef"},
 ]
 toml = [
     {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},

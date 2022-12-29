@@ -14,7 +14,7 @@ fastapi-jsonrpc = "^2.2.0"
 uvicorn = {extras = ["standard"], version = "^0.20.0"}
 typer = {extras = ["all"], version = "^0.7.0"}
 h5py = "^3.7.0"
-numpy = "^1.23.2"
+numpy = "^1.24.1"
 pyelmer = "^1.0.3"
 jinja2 = "^3.1.2"
 wget = "^3.2"

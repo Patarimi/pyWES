@@ -583,7 +583,7 @@ email = ["email-validator (>=1.0.3)"]
 
 [[package]]
 name = "pyelmer"
-version = "1.0.3"
+version = "1.1.3"
 description = "A python interface to Elmer."
 category = "main"
 optional = false
@@ -1009,7 +1009,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "08398629c223b5830db8740c2c04de0fa1a3b2b160310cc8de8c3f4038e6a5c6"
+content-hash = "7ad229a88fa93c5e14a6f664605f3fc65dce12407cf4e366f433fb2ebd698761"
 
 [metadata.files]
 aiojobs = [
@@ -1722,8 +1722,8 @@ pydantic = [
     {file = "pydantic-1.10.2.tar.gz", hash = "sha256:91b8e218852ef6007c2b98cd861601c6a09f1aa32bbbb74fab5b1c33d4a1e410"},
 ]
 pyelmer = [
-    {file = "pyelmer-1.0.3-py3-none-any.whl", hash = "sha256:26daa971d897799a5b3426b616a691432c3a18cc1379f211dd3378fc443f2b9f"},
-    {file = "pyelmer-1.0.3.tar.gz", hash = "sha256:0280af7014bd635e5b19c62d452628037dba7f6256f4e27c02dc53911d76f7ee"},
+    {file = "pyelmer-1.1.3-py3-none-any.whl", hash = "sha256:300662e88dc70afd106d4baf88b08d57500774447fdc75d2218461fc2311833b"},
+    {file = "pyelmer-1.1.3.tar.gz", hash = "sha256:630dbd494cfbab578c67c8310c6db71af06d8bdde5014288935d668a312f0d57"},
 ]
 pyems = [
     {file = "pyems-0.1.2-py2.py3-none-any.whl", hash = "sha256:b6b098aade05c0c415428597df41eaf793eea36175ced06474f628e20213ea64"},

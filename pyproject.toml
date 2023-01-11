@@ -14,8 +14,7 @@ fastapi-jsonrpc = "^2.2.0"
 uvicorn = {extras = ["standard"], version = "^0.20.0"}
 typer = {extras = ["all"], version = "^0.7.0"}
 h5py = "^3.7.0"
-numpy = "^1.24.1"
-pyelmer = "^1.1.3"
+numpy = "^1.23.2"
 jinja2 = "^3.1.2"
 wget = "^3.2"
 
@@ -26,14 +25,8 @@ black = "^22.6.0"
 pre-commit = "^2.20.0"
 tox = "^4.0.0"
 
-[tool.poetry.group.spice.dependencies]
-PySpice = "^1.5"
-
-[tool.poetry.group.em-fdtd.dependencies]
-ngsolve = "^6.2.2204"
-
 [tool.poetry.group.em-sim.dependencies]
-pyems = "^0.1.2"
+fdtd = "^0.2.6"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
